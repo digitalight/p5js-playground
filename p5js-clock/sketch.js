@@ -1,16 +1,25 @@
 let sc;
+let msec = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   angleMode(DEGREES);
+  frameRate(25);
   clocksize = windowHeight/1.5;
   translate(width/2,height/2);
   rotate(-90);
 
 }
 
+function addmilli() {
+  var now = new Date();
+  msec = now.getMilliseconds();
+}
+
 function draw() {
-  sc = second();
+  addmilli();
+  sc = second() + (msec / 1000);
+  console.log(sc);
   background(0);
   let mn = minute() + (sc / 60);
   let hr = hour() + (mn / 60);
@@ -49,18 +58,18 @@ function draw() {
 
   push();
   rotate(hand2);
-  line(0,0,clocksize-(clocksize/1.4),0);
+  line(0,0,clocksize-(clocksize/1.5),0);
   pop();
 
   //seconds
   strokeWeight(clocksize/100);
-  stroke(255,0,120);
+  stroke(255,0,80);
   let hand1 = map (sc, 0, 60, 0, 360);
   arc(0,0, clocksize, clocksize, 0, hand1);
 
   push();
   rotate(hand1);
-  line(0,0,clocksize-(clocksize/1.5),0);
+  line(-15,0,clocksize-(clocksize/1.5),0);
   pop();
 
   //point
