@@ -1,5 +1,6 @@
 let sc;
 let msec = 0;
+let clocksize;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -19,7 +20,6 @@ function addmilli() {
 function draw() {
   addmilli();
   sc = second() + (msec / 1000);
-  console.log(sc);
   background(0);
   let mn = minute() + (sc / 60);
   let hr = hour() + (mn / 60);
@@ -30,6 +30,7 @@ function draw() {
   //markings
   strokeWeight(2);
   stroke(255);
+  let ma;
   for (ma=0; ma < 12; ma++){
     push();
       rotate(30*ma);
