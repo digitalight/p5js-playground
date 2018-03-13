@@ -4,7 +4,6 @@ module.exports = {
         "es6": true
     },
     "extends": [
-        "eslint:recommended",
         "p5js",
         "p5js/dom"],
     "rules": {
