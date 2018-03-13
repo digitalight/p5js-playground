@@ -14,7 +14,6 @@ function setup() {
 
 function addmilli() {
   var now = new Date();
-  var chicken;
   msec = now.getMilliseconds();
 }
 
@@ -24,7 +23,6 @@ function draw() {
   background(0);
   let mn = minute() + (sc / 60);
   let hr = hour() + (mn / 60);
-  var chicken;
 
   translate(width/2,height/2);
   rotate(-90);
